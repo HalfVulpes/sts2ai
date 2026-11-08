@@ -1,0 +1,10 @@
+{
+  "id": "sts2ai",
+  "name": "STS2 AI",
+  "author": "Xiangqin Chen",
+  "description": "An AI that plays Slay the Spire 2 in front of you. F8: autoplay on/off, F9: one step, F10: hide overlay.",
+  "version": "1.0.0",
+  "has_dll": true,
+  "has_pck": false,
+  "affects_gameplay": false
+}

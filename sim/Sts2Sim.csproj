@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>13.0</LangVersion>
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+    <ConcurrentGarbageCollection>false</ConcurrentGarbageCollection>
+    <TieredPGO>true</TieredPGO>
+    <InvariantGlobalization>false</InvariantGlobalization>
+    <NoWarn>$(NoWarn);CS8500;CS0436</NoWarn>
+    <GameVersion Condition="'$(GameVersion)' == ''">v0.107.1</GameVersion>
+    <GameBin>$(MSBuildProjectDirectory)/../gamebin/$(GameVersion)</GameBin>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../shared/**/*.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="sts2"><HintPath>$(GameBin)/sts2.dll</HintPath></Reference>
+    <Reference Include="GodotSharp"><HintPath>$(GameBin)/GodotSharp.dll</HintPath></Reference>
+    <Reference Include="0Harmony"><HintPath>$(GameBin)/0Harmony.dll</HintPath></Reference>
+    <Reference Include="SmartFormat"><HintPath>$(GameBin)/SmartFormat.dll</HintPath></Reference>
+    <Reference Include="SmartFormat.ZString"><HintPath>$(GameBin)/SmartFormat.ZString.dll</HintPath></Reference>
+    <Reference Include="MonoMod.Backports"><HintPath>$(GameBin)/MonoMod.Backports.dll</HintPath></Reference>
+    <Reference Include="MonoMod.ILHelpers"><HintPath>$(GameBin)/MonoMod.ILHelpers.dll</HintPath></Reference>
+    <Reference Include="Sentry"><HintPath>$(GameBin)/Sentry.dll</HintPath></Reference>
+    <Reference Include="Steamworks.NET"><HintPath>$(GameBin)/Steamworks.NET.dll</HintPath></Reference>
+    <Reference Include="JetBrains.Annotations"><HintPath>$(GameBin)/JetBrains.Annotations.dll</HintPath></Reference>
+    <Reference Include="System.IO.Hashing"><HintPath>$(GameBin)/System.IO.Hashing.dll</HintPath></Reference>
+  </ItemGroup>
+</Project>

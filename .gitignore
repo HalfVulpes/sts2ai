@@ -1,0 +1,51 @@
+# Local copies of the commercial game and derived resources
+/gamebin/
+/decompiled/
+*.pck
+
+# Training state, downloaded/exported policies, and local distributions
+/backups/
+/train/runs/
+/runs/
+/models/
+/.research_backups/
+/experiments/artifacts/
+/experiments/colab_state/
+/dist/
+/docs/report/data/logs/
+*.pt
+*.pth
+*.bin
+*.so
+
+# Build and Python environments
+**/bin/
+**/obj/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Machine configuration and credentials
+.env
+.env.*
+!.env.example
+search.cfg
+*.key
+*.pem
+.DS_Store
+
+# LaTeX intermediates (keep source, figures, and report PDF)
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+
+# Release assets downloaded or extracted into a checkout
+/sts2ai-weights-*/
+/text-baselines-*/
+*.tar.gz
+*.zip
+/eval/

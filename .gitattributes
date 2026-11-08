@@ -1,0 +1,2 @@
+# Matplotlib emits whitespace within multi-line SVG path attributes.
+*.svg -whitespace

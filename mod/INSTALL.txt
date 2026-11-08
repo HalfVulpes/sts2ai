@@ -1,0 +1,67 @@
+STS2 AI mod (v1.0)
+==================
+
+An AI that plays Slay the Spire 2 in front of you. A panel in the top-right corner shows how it sees the
+current decision: its estimated chance of winning the run, the floor it expects to reach, and its top
+choices. You can let it play by itself, step it one action at a time, or leave it off and use it as an
+advisor. It chooses each action with one forward pass of a neural network on your CPU (no search).
+
+This package contains the mod (sts2ai.dll, sts2ai.json) and the trained policies (model*.bin). It contains
+no game files. The policies also need the game's entity vocabulary, which is generated on your machine
+from your own copy of the game.
+
+Requirements
+------------
+- Slay the Spire 2, game version v0.107.1 (Steam). Other versions do not work: the mod reads game internals.
+- Linux (tested). The mod is plain .NET code and may work on Windows, but that is untested and the
+  installer below is a bash script.
+- To generate the vocabulary once: python3 (3.11+), unzip, and the .NET 9 SDK (https://dot.net).
+
+Install
+-------
+1. Get the source repository (the same release as this zip) and open a terminal in it.
+2. Run
+       tools/install_release_mod.sh /path/to/sts2ai-mod-v1.0.zip ["/path/to/Slay the Spire 2"]
+   The game folder defaults to ~/.steam/steam/steamapps/common/Slay the Spire 2. The script checks your
+   game version and assembly hashes, builds the repository's headless host, generates vocab.dat from your
+   installation, and copies everything into <game>/mods/sts2ai/.
+3. Start the game. It asks once whether to allow mods: allow it.
+4. Start or continue a run. The AI panel appears in the top-right corner.
+
+To uninstall, delete the mods/sts2ai folder.
+
+Controls
+--------
+  F8   Autoplay on/off (one action every 0.8 s; the button turns green while it is on)
+  F9   Play exactly one AI step (also works with autoplay off)
+  F10  Hide or show the panel (a small "STS2 AI" button stays in the corner)
+
+The panel buttons do the same as the keys. "Search: n/a" is expected: the released policies play without
+search, and the optional search mode needs a locally built simulator (see mod/README.md in the repository).
+
+Models
+------
+The mod picks model_<character>.bin for the current character (model.bin if there is none). At ascension 8
+and above it would use model_<character>_hi.bin if present; this package ships none. This package ships:
+  model_ironclad.bin, model_silent.bin, model_defect.bin, model_necrobinder.bin, model_regent.bin
+      the five released policies of the paper (model.bin is the same file as model_defect.bin; the mod
+      requires model.bin as its default)
+
+The paper reports their win rates at Ascension 0 to 10 in simulated games (greedy play, held-out seeds,
+no search); the mod plays the same files with the same C# code.
+
+Co-op
+-----
+The mod changes no game rules (it reads the screen and clicks), so it can sit in a co-op lobby on its own
+client. The policies were trained solo and do not plan around teammates.
+
+Troubleshooting
+---------------
+Every AI action and any error is written to the game log, on lines starting with [sts2ai]:
+  Linux:   ~/.local/share/SlayTheSpire2/logs/godot.log
+If the AI seems stuck, it logs "waiting on ..." with the screen it cannot handle. Press F8 to turn autoplay
+off and continue by hand. If the panel does not appear, check the log for "[sts2ai] failed to initialize"
+(for example a missing vocab.dat: run the installer again).
+
+Licence: the mod code and the policies are released under GPL-2.0-only (see LICENSE). Slay the Spire 2 and
+its assets belong to their rights holders; this project is not affiliated with or endorsed by Mega Crit.
