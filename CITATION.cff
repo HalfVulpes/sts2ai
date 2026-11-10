@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this research code, please cite the paper and this software. No arXiv identifier has been assigned yet."
+message: "If you use this research code, please cite the paper (preferred-citation) and this software."
 title: "STS2 AI: Zero-Search Reinforcement Learning for Slay the Spire 2 with Failure-Driven Restarts"
 type: software
 authors:
@@ -14,3 +14,18 @@ authors:
 license: GPL-2.0-only
 repository-code: "https://github.com/HalfVulpes/sts2ai"
 version: 1.0.0
+preferred-citation:
+  type: article
+  title: "Zero-Search Reinforcement Learning for Slay the Spire 2 with Failure-Driven Restarts"
+  authors:
+    - family-names: Chen
+      given-names: Xiangqin
+      affiliation: University of Waterloo
+    - family-names: Xie
+      given-names: Zhengxuan
+      affiliation: University of Waterloo
+  journal: "arXiv preprint arXiv:2611.12088"
+  year: 2026
+  month: 11
+  doi: "10.48550/arXiv.2611.12088"
+  url: "https://arxiv.org/abs/2611.12088"

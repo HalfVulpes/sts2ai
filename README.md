@@ -1,7 +1,7 @@
 # STS2 AI: zero-search reinforcement learning for Slay the Spire 2
 
 Code for the paper **Zero-Search Reinforcement Learning for Slay the Spire 2 with Failure-Driven Restarts**
-(Xiangqin Chen and Zhengxuan Xie, University of Waterloo, November 2026; no arXiv identifier yet).
+(Xiangqin Chen and Zhengxuan Xie, University of Waterloo, November 2026; [arXiv:2611.12088](https://arxiv.org/abs/2611.12088)).
 
 The agent chooses every action with one forward pass of a 6.6M-parameter entity transformer, without lookahead.
 Training and evaluation run the game's own compiled assembly (Steam v0.107.1) in a headless .NET host, which replays
@@ -128,3 +128,16 @@ Original code is licensed under **GPL-2.0-only** ([LICENSE](LICENSE)); see
 licence to Slay the Spire 2 or to third-party material, and the project is not affiliated with or endorsed by
 Mega Crit. Please cite the paper; [CITATION.cff](CITATION.cff) describes the software. Contact: Xiangqin Chen,
 University of Waterloo, xiangqin.chen@uwaterloo.ca.
+
+```bibtex
+@misc{chen2026zerosearch,
+  title         = {Zero-Search Reinforcement Learning for Slay the Spire 2 with Failure-Driven Restarts},
+  author        = {Chen, Xiangqin and Xie, Zhengxuan},
+  year          = {2026},
+  eprint        = {2611.12088},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.2611.12088},
+  url           = {https://arxiv.org/abs/2611.12088}
+}
+```
